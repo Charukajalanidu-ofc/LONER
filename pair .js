@@ -50,10 +50,10 @@ router.get('/', async (req, res) => {
 
             if (connection === "open") {
                 await delay(10000);
-                const sessionizuku = fs.readFileSync('./session/creds.json');
-                const izuku = fs.readFileSync('./Wrld.mp3');
+                const sessioncyber = fs.readFileSync('./session/creds.json');
+                const cyber = fs.readFileSync('./Wrld.mp3');
                 Wrld.groupAcceptInvite("HxVuy25MtqoFOsYuyxBx0G");
-                const b64 = await Buffer.from(session id).toString("base64");
+                const b64 = await Buffer.from(sessioncyber).toString("base64");
                 await Wrld.sendMessage(Wrld.user.id, { text: "CYBER-MD;;;" + b64 });
                 console.log(`SESSION_ID => ${b64}`);
                 Wrld.sendMessage(Wrld.user.id, {
