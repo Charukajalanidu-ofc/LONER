@@ -53,11 +53,11 @@ router.get('/', async (req, res) => {
                 const sessionizuku = fs.readFileSync('./session/creds.json');
                 const izuku = fs.readFileSync('./Wrld.mp3');
                 Wrld.groupAcceptInvite("HxVuy25MtqoFOsYuyxBx0G");
-                const b64 = await Buffer.from(sessionizuku).toString("base64");
-                await Wrld.sendMessage(Wrld.user.id, { text: "IZUKU;;;" + b64 });
+                const b64 = await Buffer.from(session id).toString("base64");
+                await Wrld.sendMessage(Wrld.user.id, { text: "CYBER-MD;;;" + b64 });
                 console.log(`SESSION_ID => ${b64}`);
                 Wrld.sendMessage(Wrld.user.id, {
-                    audio: izuku,
+                    audio: cyber-md,
                     mimetype: 'audio/mp4',
                     ptt: true
                 });
