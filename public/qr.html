@@ -1,133 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="google-adsense-account" content="ca-pub-3630176199534356">
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>cyber qr</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <title>IZUKU WEB QR</title>
+    <link rel="shortcut icon" href="https://telegra.ph/file/b1e78b28a26640d7c7cf1.jpg" type="image/x-icon" />
     <style>
         body {
-            background: linear-gradient(135deg, #6a11cb, #2575fc);
-            font-family: 'Poppins', sans-serif;
-            min-height: 100vh;
+            font-family: 'Outfit', sans-serif;
+            background-color: #0e1013; /* Dark tech-like background color */
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
         }
-        .container {
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+
+        .card {
             text-align: center;
-            max-width: 400px;
-            width: 100%;
-        }
-        .qr-code {
-            width: 200px;
-            height: 200px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.2); /* Transparent background */
             border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+            max-width: 80%; 
         }
-        .message {
-            margin-top: 20px;
-            font-size: 1.2em;
-            color: #333;
+
+        .code_1 {
+            border: 2px solid #007bff; /* Blue border */
+            border-radius: 10px;
+            margin-bottom: 20px;
+            max-width: 90%; 
         }
-        .spinner-border {
-            width: 3rem;
-            height: 3rem;
+
+        .title {
+            font-size: 24px; 
+            font-weight: bold;
+            color: #007bff; /* Blue title color */
+            margin: 10px 0;
         }
-        .countdown {
-            margin-top: 10px;
-            font-size: 1.1em;
-            color: #ff0000;
+
+        .legend {
+            font-size: 14px;
+            color: #fff; /* White text color */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div id="loading" class="spinner-border text-primary" role="status">
-            <span class="sr-only">Loading...</span>
-        </div>
-        <img id="qr" class="qr-code d-none" src="" alt="QR Code" />
-        <div id="status" class="message">Waiting for QR code...</div>
-        <div id="countdown" class="countdown d-none">Time remaining: <span id="timer">30</span> seconds</div>
-        <div id="session-id" class="input-group d-none">
-            <input type="text" class="form-control" id="session-id-input" readonly>
-            <div class="input-group-append">
-                <button class="btn btn-primary" type="button" id="copy-btn"><i class="fas fa-copy"></i> Copy</button>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        const protocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
-        const ws = new WebSocket(`${protocol}//${location.host}`);
-        let countdownInterval;
-ws.onmessage = (event) => {
-    const message = JSON.parse(event.data);
-    if (message.type === 'qr') {
-        document.getElementById('loading').classList.add('d-none');
-        document.getElementById('qr').src = `data:image/png;base64,${message.data}`;
-        document.getElementById('qr').classList.remove('d-none');
-        document.getElementById('status').innerText = 'Please scan the QR code to connect';
-        startCountdown(30); // Start the countdown from 30 seconds
-    } else if (message.type === 'status') {
-        document.getElementById('status').innerText = message.data;
-    } else if (message.type === 'session') {
-        document.getElementById('session-id-input').value = message.data;
-        document.getElementById('session-id').classList.remove('d-none');
-    }
-};
-
-        ws.onclose = () => {
-            clearInterval(countdownInterval);
-            document.getElementById('loading').classList.add('d-none');
-            document.getElementById('qr').classList.add('d-none');
-            document.getElementById('countdown').classList.add('d-none');
-            document.getElementById('session-id').classList.add('d-none');
-            document.getElementById('status').innerText = 'Connection closed';
-        };
-
-        ws.onopen = () => {
-            document.getElementById('loading').classList.remove('d-none');
-            document.getElementById('qr').classList.add('d-none');
-            document.getElementById('status').innerText = 'Waiting for QR code...';
-        };
-
-        function startCountdown(seconds) {
-            const countdownElement = document.getElementById('timer');
-            document.getElementById('countdown').classList.remove('d-none');
-            countdownElement.innerText = seconds;
-            
-            countdownInterval = setInterval(() => {
-                seconds--;
-                countdownElement.innerText = seconds;
-                if (seconds <= 0) {
-                    clearInterval(countdownInterval);
-                    document.getElementById('status').innerText = 'QR code expired. Please refresh to get a new code.';
-                    document.getElementById('qr').classList.add('d-none');
-                    document.getElementById('countdown').classList.add('d-none');
-                    document.getElementById('session-id').classList.add('d-none');
-                }
-            }, 1000);
-        }
-
-        const copyBtn = document.getElementById('copy-btn');
-        const sessionIdInput = document.getElementById('session-id-input');
-        
-<main class="code">
+    <main class="code">
         <div class="card">
-            <img id="qr-code" class="code_1" src="https://izuku-pair-97f2d1376d7e.herokuapp.com" alt="CYBER MD QR" title="Scan the QR code to connect with WhatsApp Multi Device">
-        
-        
-        copyBtn.addEventListener('click', () => {
-            sessionIdInput.select();
-            document.execCommand('copy');
-            alert('Session ID copied to clipboard!');
-        });
-    </script>
+            <img id="qr-code" class="code_1" src="https://izuku-pair-97f2d1376d7e.herokuapp.com" alt="MD QR" title="Scan the QR code to connect with WhatsApp Multi Device">
+            <h1 class="title">IZUKU-MD QR </h1>
+            <p class="legend">POWERED BY IZUKU </p>
+        </div>
+    </main>
+    <script type="text/javascript">
+    var infolinks_pid = 3413704;
+    var infolinks_wsid = 0;
+</script>
+<script type="text/javascript" src="//resources.infolinks.com/js/infolinks_main.js"></script>
 </body>
 </html>
