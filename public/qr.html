@@ -10,40 +10,7 @@
     <style>
 
 
-  .body {
-    --border-color: linear-gradient(-45deg, #ffae00, #7e03aa, #00fffb);
-    --border-width: .125em;
-    --curve-size: .5em;
-    --blur: 30px;
-    --bg: #080312;
-    --color: #afffff;
-    color: var(--color);
-      /* use position: relative; so that BG is only for .btn */
-    position: relative;
-    isolation: isolate;
-    display: inline-grid;
-    text-align: center;
-    place-content: center;
-    padding: .5em 1.5em;
-    font-size: 17px;
-    border: 0;
-    text-transform: uppercase;
-    box-shadow: 10px 10px 20px rgba(0, 0, 0, .6);
-    clip-path: polygon(
-              /* Top-left */
-              0% var(--curve-size),
 
-              var(--curve-size) 0,
-              /* top-right */
-              100% 0,
-              100% calc(100% - var(--curve-size)),
-
-              /* bottom-right 1 */
-              calc(100% - var(--curve-size)) 100%,
-              /* bottom-right 2 */
-              0 100%);
-    transition: color 250ms;
-  }
 
 
         
@@ -91,7 +58,7 @@
                  
 
         .code_1 {
-            border: 2px solid   #00fffb)0; /* Red border */
+            border: 2px solid    #080312)0; /* Red border */
             border-radius: 10px;
             margin-bottom: 20px;
             max-width: 90%; 
