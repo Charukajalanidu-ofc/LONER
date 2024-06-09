@@ -8,43 +8,42 @@
     <title>IZUKU WEB QR</title>
     <link rel="shortcut icon" href="https://telegra.ph/file/b1e78b28a26640d7c7cf1.jpg" type="image/x-icon" />
     <style>
-        body {
-            font-family: 'Outfit', sans-serif;
-            background-color: #0e1013; /* Dark tech-like background color */
+           body {
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
             display: flex;
-            align-items: center;
             justify-content: center;
-            height: 100vh;
-            margin: 0;
+            align-items: center;
         }
-
-        .card {
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
             text-align: center;
-            padding: 20px;
-            background-color: rgba(255, 255, 255, 0.2); /* Transparent background */
+            max-width: 400px;
+            width: 100%;
+        }
+        .qr-code {
+            width: 200px;
+            height: 200px;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            animation: fadeIn 1s ease-in-out;
-            max-width: 80%; 
         }
-
-        .code_1 {
-            border: 2px solid #007bff; /* Blue border */
-            border-radius: 10px;
-            margin-bottom: 20px;
-            max-width: 90%; 
+        .message {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #333;
         }
-
-        .title {
-            font-size: 24px; 
-            font-weight: bold;
-            color: #007bff; /* Blue title color */
-            margin: 10px 0;
+        .spinner-border {
+            width: 3rem;
+            height: 3rem;
         }
-
-        .legend {
-            font-size: 14px;
-            color: #fff; /* White text color */
+        .countdown {
+            margin-top: 10px;
+            font-size: 1.1em;
+            color: #ff0000;
+        }
         }
 
         @keyframes fadeIn {
