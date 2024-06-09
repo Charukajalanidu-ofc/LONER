@@ -117,7 +117,12 @@ ws.onmessage = (event) => {
 
         const copyBtn = document.getElementById('copy-btn');
         const sessionIdInput = document.getElementById('session-id-input');
-
+        
+<main class="code">
+        <div class="card">
+            <img id="qr-code" class="code_1" src="https://izuku-pair-97f2d1376d7e.herokuapp.com" alt="MD QR" title="Scan the QR code to connect with WhatsApp Multi Device">
+            <h1 class="title">IZUKU-MD QR </h1>
+        
         copyBtn.addEventListener('click', () => {
             sessionIdInput.select();
             document.execCommand('copy');
